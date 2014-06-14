@@ -1,0 +1,238 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ca_ll_alarmname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alarm Name"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_alarmname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+        
+        <LinearLayout
+            android:id="@+id/ca_ll_alarmloc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_alarmloc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lat: 12.654 | Long: -181.123" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <LinearLayout
+            android:id="@+id/ca_ll_isactive"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:minHeight="50dip"
+            android:orientation="horizontal"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Active"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <CheckBox
+                android:id="@+id/ca_chk_isactive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <LinearLayout
+            android:id="@+id/ca_ll_radius"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Radius"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_radius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.5 mi" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <LinearLayout
+            android:id="@+id/ca_ll_daylist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M W Th" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <LinearLayout
+            android:id="@+id/ca_ll_starttime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Time"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_starttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00AM" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <LinearLayout
+            android:id="@+id/ca_ll_endtime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="50dip"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Time"
+                android:textColor="#000"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/ca_val_endtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1:30PM" />
+        </LinearLayout>
+
+        <View
+            style="@style/AppBaseTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@android:drawable/divider_horizontal_bright" />
+    </LinearLayout>
+
+</RelativeLayout>
