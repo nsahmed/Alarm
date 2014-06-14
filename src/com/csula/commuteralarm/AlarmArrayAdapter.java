@@ -2,8 +2,6 @@ package com.csula.commuteralarm;
 
 import java.util.List;
 
-import com.csula.commuteralarm.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

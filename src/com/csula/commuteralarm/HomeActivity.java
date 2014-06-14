@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.example.mapdemo.R;
-
 import android.app.AlarmManager;
 import android.app.ListActivity;
 import android.app.PendingIntent;
@@ -26,15 +24,17 @@ public class HomeActivity extends ListActivity {
 	private Button newBtn, startAlarm;
 	public static Alarm currentAlarm;
 	private DbManager Db;
+	static boolean isNew = true;
 	private SQLiteDatabase wDb = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		isNew = false;
 		ListView listView1 = (ListView)findViewById(android.R.id.list);
 		newBtn = (Button)findViewById(R.id.newBtn);
-		startAlarm = (Button)findViewById(R.id.startAlarm);
+		startAlarm = (Button)findViewById(R.id.startalarm);
 
 		Db = new DbManager(this);
 		wDb = Db.getWritableDatabase();

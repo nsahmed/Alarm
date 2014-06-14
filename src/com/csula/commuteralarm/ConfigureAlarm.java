@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.csula.commuteralarm.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ >
+<!-- <TextView -->
+<!--  android:layout_width="fill_parent" -->
+<!--  android:layout_height="wrap_content" -->
+<!--  android:layout_centerHorizontal="true" -->
+<!--  android:layout_centerVertical="true" -->
+<!--  android:text="hello" -->
+<!--  /> -->
+<Button
+ android:id="@+id/startalarm"
+ android:layout_width="fill_parent"
+ android:layout_height="wrap_content"
+ android:text="Start"
+ />
+<Button
+ android:id="@+id/cancelalarm"
+ android:layout_width="fill_parent"
+ android:layout_height="wrap_content"
+ android:text="Cancel"
+ />
+<Button
+ android:id="@+id/snoozealarm"
+ android:layout_width="fill_parent"
+ android:layout_height="wrap_content"
+ android:text="Snooze"
+ />
+</LinearLayout>

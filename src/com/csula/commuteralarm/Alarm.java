@@ -1,50 +1,47 @@
 package com.csula.commuteralarm;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
 import com.google.android.gms.maps.model.LatLng;
 
 import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-// Data structure for storing alarm entries
-public class Alarm {
-	int id;							// Id (assigned)
-	
-	boolean isOn = false;			// If it is currently active (set by the user)
-	
-	boolean isDismissed = false;	// In case it was in effect, alarmed, and user dismissed it
-									// this is used to make sure it won't get triggered again
-	
-	String name;					// The name of the alarm (set by the user)
-	
-	double radius;					// The radius in meters
-	
-	String alarm_tone;				// (Currently unused)
-	
-	boolean[] days;					// Bool array of the 7 days
-									// The alarm only listens if the current weekday's
-									// index is true
-	
-	LatLng dest;					// The destination
-	
-	// The start and end times. The alarm only listens in between the times
-	// specified here
+public class Alarm implements Parcelable{
+	int id;
+	boolean isOn = false;
+	boolean isDismissed = false;
+	String name;
+	double radius;			// This shouldn't be int (or should mean feet)
+	boolean[] days;	    // This needs to be a bool array
+	long time;			// This needs to be a start and end time
+	//Date starttime;
 	int startTimeHour, startTimeMin, endTimeHour, endTimeMin;
-	
+	LatLng dest;
 	
 	public Alarm(){
-		radius = 1000;
-		dest = new LatLng(34.066438, -118.167232);
 		days = new boolean[7];
 		for(int i = 0; i < 7; i++){
 			days[i] = true;
 		}
 	}
 	
-	// Used for displaying the days in the UI to convert which index corresponds to which day
+	public Alarm(Parcel p) {
+		id = p.readInt();
+		isOn = p.readInt() == 1;
+		isDismissed = p.readInt() == 1;
+		name = p.readString();
+		radius = p.readInt();
+		p.readBooleanArray(days);
+		time = p.readLong();
+		startTimeHour = p.readInt();
+		startTimeMin = p.readInt();
+		endTimeHour = p.readInt();
+		endTimeMin = p.readInt();
+		dest = p.readParcelable(null);
+	}
+	
 	public String getDaysText(){
 		String ret = "";
 		if(days[0]) { ret += "M "; }
@@ -57,9 +54,6 @@ public class Alarm {
 		return ret;
 	}
 	
-	// Used for displaying the times. Internally time is stored in 24 hours
-	// This converts time to AM/PM format, which is used both at display
-	// and at entry
 	public String getTimeText(boolean isStart){
 		int Hours, Mins;
 		boolean isPM = false;
@@ -77,7 +71,7 @@ public class Alarm {
 		if(Hours < 10){
 			sH = "0" + sH;
 		}
-		sM  =String.valueOf(Mins);
+		sM = String.valueOf(Mins);
 		if(Mins < 10){
 			sM = "0" + sM;
 		}
@@ -85,8 +79,12 @@ public class Alarm {
 		return sH+":"+sM+" "+ret;
 	}
 	
-	// Checks if the commute is currently in progress
-	// Used by the alarm service
+	public void SaveAlarm(){
+		
+		
+	}
+	
+	// checks if the commute is currently in progress
 	public boolean isInProgress(){
 		boolean ret = false;
 		if(isOn && !isDismissed){
@@ -106,8 +104,6 @@ public class Alarm {
 		return ret;
 	}
 	
-	// Checks if user is in the trigger radius
-	// Used by the alarm service
 	public boolean isInRadius(Location currLoc){
 		boolean ret = false;
 		float[] distance = new float[2];
@@ -117,4 +113,76 @@ public class Alarm {
 		}
 		return ret;
 	}
+	
+	public void LoadAlarm(int ID){
+		//JSONArray jArr = new JSONArray(data);
+		//JSONObject jObj = jArr.getJSONObject(ID);
+		//this.name = jObj.getString("name");
+		/*for(int i = 0; i < jArr.length(); i++){
+			JSONObject obj = jArr.getJSONObject(i);
+			
+		}*/
+	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel par, int flags) {
+		par.writeInt(id);
+		par.writeInt(isOn ? 1 : 0);
+		par.writeInt(isDismissed ? 1 : 0);
+		par.writeString(name);
+		par.writeDouble(radius);
+		par.writeBooleanArray(days);
+		par.writeLong(time);
+		par.writeInt(startTimeHour);
+		par.writeInt(startTimeMin);
+		par.writeInt(endTimeHour);
+		par.writeInt(endTimeMin);
+		par.writeParcelable(dest, 0);
+	}
+
 }
+/*
+JSON Data format
+[
+{
+    "id": 0,
+    "isActive" : 0,
+    "Name": "MyAlarm1",
+    "rad": 2.1,
+    "days": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+    ],
+    "tstart": 5,
+    "tend": 6
+},
+{
+    "id": 0,
+    "isActive" : 1,
+    "Name": "MyAlarm2",
+    "rad": 3,
+    "days": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+    ],
+    "tstart": 3,
+    "tend": 7
+}
+]
+ */

@@ -1,5 +1,4 @@
 package com.csula.commuteralarm;
-import com.csula.commuteralarm.R;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;

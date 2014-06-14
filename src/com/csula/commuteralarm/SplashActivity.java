@@ -1,8 +1,5 @@
 package com.csula.commuteralarm;
 
-
-import com.csula.commuteralarm.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

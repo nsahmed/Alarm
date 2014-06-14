@@ -3,8 +3,6 @@ package com.csula.commuteralarm;
 
 import java.util.Calendar;
 
-import com.example.mapdemo.R;
-
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
